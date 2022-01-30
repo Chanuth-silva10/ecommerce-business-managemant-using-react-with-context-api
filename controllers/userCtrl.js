@@ -1,6 +1,7 @@
 const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { use } = require('../routes/userRouter');
 
 const userCtrl = {
      register: async (req, res) =>{
@@ -87,8 +88,11 @@ const userCtrl = {
      },
      getUser: async (req, res) => {
          try{
-            res.json(req.user) // id of user
-         }catch(err){
+            const user = await Users.findById(req.user.id)
+            if(!user) return res.status(400).json({msg: "User does not exist."})
+
+            res.json(user)
+        }catch(err){
             return res.status(500).json({msg: err.message})
          }
      }
