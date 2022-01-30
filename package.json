@@ -1,0 +1,30 @@
+{
+  "name": "chanuth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.28.1",
+    "concurrently": "^7.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "express-fileupload": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.8",
+    "react-paypal-express-checkout": "^1.0.5",
+    "react-router-dom": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
