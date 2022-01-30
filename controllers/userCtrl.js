@@ -88,7 +88,7 @@ const userCtrl = {
      },
      getUser: async (req, res) => {
          try{
-            const user = await Users.findById(req.user.id)
+            const user = await Users.findById(req.user.id).select('-password')
             if(!user) return res.status(400).json({msg: "User does not exist."})
 
             res.json(user)
