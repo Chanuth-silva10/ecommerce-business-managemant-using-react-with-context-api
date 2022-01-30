@@ -11,8 +11,16 @@ const categoryCtrl = {
     },
     createCategory : async (req, res) =>{
          try{
-             res.json('Check admin success')
-         }catch(err){
+             const {name} = req.body
+             const category = await Category.findOne({name})
+             if(category) return res.status(400).json({msg: "This category already exists."})
+
+             const newCategory = new Category({name})
+
+             await newCategory.save()
+             res.json({msg: "Created a Category"})
+             
+        }catch(err){
              return res.status(500).json({msg: err.message})
          }
         },
