@@ -63,7 +63,7 @@ const userCtrl = {
               return res.status(500).json({msg:err.message})
           }
      },
-     refreshToken: (req, res) =>{
+     refreshToken:async (req, res) =>{
          const rf_token = req.cookies.refreshtoken;
          if(!rf_token) return res.status(400).json({msg: "Please Login or register."})
          
@@ -74,7 +74,17 @@ const userCtrl = {
              res.json({accesstoken})
          })
         
-     }
+     },
+     logout: async (req, res) => {
+         try{
+             res.clearCookie('refreshtoken', {path: '/user/refresh_token'})
+             return res.json({msg: "Logged out"})
+
+
+         }catch(err){
+             return res.status(500).json({msg: err.message})
+         }
+     },
 }
 
 const createAccessToken = (user) =>{
