@@ -9,3 +9,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App{
+  max-width: 1430px;
+  min-width: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-shadow: 0 0 35px #eee;
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style-type: none;
+}
+Link{
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ---------------- Header ------------ */
+@import url("./components/headers/header.css");
