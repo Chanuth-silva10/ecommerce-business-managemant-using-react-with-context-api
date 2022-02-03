@@ -20,7 +20,7 @@ function Header() {
 
         <ul>
             <li><Link to="/">Products</Link></li>
-            <li><Link to="/">Login & Register</Link></li>
+            <li><Link to="/login">Login & Register</Link></li>
 
             <li>
                 <img src={Close} alt='' width="30"></img>

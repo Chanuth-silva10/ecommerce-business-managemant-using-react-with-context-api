@@ -1,9 +1,9 @@
 import React from 'react'
 import BtnRender from './BtnRender'
-import {Link} from 'react-router-dom'
+
 
 function ProductItem({product}) {
-    console.log(product)
+   // console.log(product)
     return (
         <div className="product_card">
            
