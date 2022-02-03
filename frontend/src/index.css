@@ -31,3 +31,6 @@ Link{
 
 /* ---------------- Header ------------ */
 @import url("./components/headers/header.css");
+
+/* ---------------- Products  ------------ */
+@import url("./components/mainpages/products/products.css");
