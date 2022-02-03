@@ -23,7 +23,7 @@ function Login() {
       window.location.href = "/";
     }catch(err){
       alert(err.response.data.msg)
-      console.log(err.response)
+      //console.log(err.response)
     }
   }
 
