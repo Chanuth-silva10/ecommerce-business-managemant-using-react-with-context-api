@@ -16,13 +16,13 @@ export const DataProvider = ({children}) =>{
 
     useEffect(() => {
         const firstLogin = localStorage.getItem('firstLogin')
-        if(firstLogin)  refreshToken()
+        if(firstLogin) refreshToken()
     },[])
     
     const state = {
         token: [token, setToken],
-        productsAPI: ProductsAPI(),
-        UserAPI : UserAPI(token)
+        productsAPI: ProductsAPI(),  
+        userAPI : UserAPI(token)
     }
      return(
          <GlobalState.Provider value={state}>
