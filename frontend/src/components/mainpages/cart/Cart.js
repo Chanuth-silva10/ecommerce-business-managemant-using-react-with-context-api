@@ -22,6 +22,12 @@ function Cart() {
 
     },[cart])
 
+    const addToCart = async (cart) =>{
+        await axios.patch('/user/addcart', {cart}, {
+            headers: {Authorization: token}
+        })
+    }
+
     const increment = (id) =>{
         cart.forEach(item => {
             if(item._id === id){
@@ -30,7 +36,7 @@ function Cart() {
         })
 
         setCart([...cart])
-        //addToCart(cart)
+        addToCart(cart)
     }
 
     const decrement = (id) =>{
@@ -41,7 +47,7 @@ function Cart() {
         })
 
         setCart([...cart])
-        //addToCart(cart)
+        addToCart(cart)
     }
 
     const removeProduct = id =>{
@@ -53,7 +59,7 @@ function Cart() {
             })
 
             setCart([...cart])
-            //addToCart(cart)
+            addToCart(cart)
         }
     }
 
