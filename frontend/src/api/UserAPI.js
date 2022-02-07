@@ -7,7 +7,7 @@ function UserAPI(token) {
   const [isAdmin, setIsAdmin] = useState(false)
   const [cart, setCart] = useState([])
   
-
+  
   useEffect(() => {
       if(token){
          const getUser = async () => {
@@ -20,6 +20,8 @@ function UserAPI(token) {
                 res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
                 
                 //console.log(res)
+
+                setCart(res.data.cart)
              }catch(err){
                 alert(err.response.data.msg)
              }
