@@ -37,7 +37,10 @@ function UserAPI(token) {
 
       if(check){
          setCart([...cart, {...product, quantity: 1}])
-
+         
+         await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}] }, {
+              headers: {Authorization: token} 
+         })
       }else{
          alert("This product has been added to cart.")
       }
