@@ -4,7 +4,7 @@ import {GlobalState} from '../../../../GlobalState'
 
 function BtnRender({product}) {
   const state = useContext(GlobalState)
-  console.log(state)
+  //console.log(state)
   const [isAdmin] = state.userAPI.isAdmin
   const addCart = state.userAPI.addCart
 

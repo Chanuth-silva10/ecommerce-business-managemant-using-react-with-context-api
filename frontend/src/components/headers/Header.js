@@ -10,6 +10,7 @@ function Header() {
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
+    const [cart] = state.userAPI.cart
    
     const logoutUser = async () =>{
         await axios.get('/user/logout')
@@ -63,7 +64,7 @@ function Header() {
             {
                 isAdmin ? '' 
                 :<div className="cart-icon">
-                    <span></span>
+                    <span>{cart.length}</span>
                     <Link to="/cart">
                         <img src={Cart} alt="" width="30" />
                     </Link>
