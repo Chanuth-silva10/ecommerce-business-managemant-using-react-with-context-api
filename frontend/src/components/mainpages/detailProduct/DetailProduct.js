@@ -8,6 +8,7 @@ function DetailProduct() {
   const state = useContext(GlobalState);
   //console.log(state)
   const [products] = state.productsAPI.products
+  const addCart = state.userAPI.addCart
   //console.log(params)
   const [detailProduct, setDetailProduct] = useState([])
 
@@ -36,7 +37,10 @@ function DetailProduct() {
                <p>{detailProduct.description}</p>
                <p>{detailProduct.content}</p>
                <p>Sold : {detailProduct.sold}</p>
-               <Link to="/cart" className='cart'>Buy Now</Link>
+               <Link to="/cart" className="cart"
+                     onClick={() => addCart(detailProduct)}>
+                        Buy Now
+               </Link>
           </div>
       </div>
 
