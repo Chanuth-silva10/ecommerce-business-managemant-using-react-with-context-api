@@ -1,13 +1,14 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-
+import PaypalButton from './PaypalButton'
 
 function Cart() {
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
+    const [token] = state.token
     const [total, setTotal] = useState(0)
+    
 
     useEffect(() =>{
         const getTotal = () =>{
@@ -27,6 +28,7 @@ function Cart() {
             headers: {Authorization: token}
         })
     }
+
 
     const increment = (id) =>{
         cart.forEach(item => {
@@ -86,11 +88,10 @@ function Cart() {
                                 <button onClick={() => increment(product._id)}> + </button>
                             </div>
                             
-                             <div className="delete" 
-                              onClick={() => removeProduct(product._id)}>
+                            <div className="delete" 
+                            onClick={() => removeProduct(product._id)}>
                                 X
                             </div>
-                           
                         </div>
                     </div>
                 ))
@@ -98,7 +99,7 @@ function Cart() {
 
             <div className="total">
                 <h3>Total: $ {total}</h3>
-                <Link to="#!">Payment</Link>
+                <PaypalButton/>
             </div>
         </div>
     )
